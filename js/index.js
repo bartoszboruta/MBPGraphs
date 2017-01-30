@@ -1,5 +1,8 @@
+var summedRows = [];
+var tab = [];
 $(document).ready(function(){
-  fillQuadraWithValues(renderBinaryArray(1023));
+    tab = fillQuadraWithValues(renderBinaryArray(1023));
+    summedRows = sumBinaryArrayRows(tab);
 })
 
 function renderBinaryArray(value) {
@@ -52,4 +55,36 @@ function fillQuadraWithValues(binnaryArray) {
         container.push(arr);
   })
   return container;
+}
+
+function submitInputs() {
+  vals = [];
+  for(var i = 0; i < 5; i++) {
+    vals.push(parseInt($('#in'+i).val()));
+  }
+
+  var amout = _.sortBy(vals);
+  compareArrays(summedRows, amout);
+}
+
+function compareArrays(arr1, arr2){
+  _.each(arr1, function(val, key){
+    if(_.isEqual(val, arr2) === true) console.log(tab[key]);
+  })
+}
+
+function sumBinaryArrayRows(binnaryArray) {
+  rows = [];
+  _.each(binnaryArray, function(binArr){
+    sumRow = [];
+    _.each(binArr, function(bin){
+      sum = 0;
+      _.each(bin, function(bit){
+        sum += parseInt(bit);
+      })
+      sumRow.push(sum);
+    })
+    rows.push(_.sortBy(sumRow));
+  })
+  return rows;
 }
