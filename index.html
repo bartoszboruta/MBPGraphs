@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+<style>
+  svg polyline{
+    opacity: 0;
+  }
+</style>
 <body>
   <div class="container">
     <div class="jumbotron">
@@ -20,10 +25,13 @@
     <input id="in4" type="number" max="4" min="0" value="0">
     <input type="button" class="btn btn-submit" value="GENERUJ" onclick="submitInputs()">
   </div>
-  <div class="col-xs-12">
+  <div class="col-xs-1">
     <div id="resultArr">
     </div>
   </div>
-
+  <div class="col-xs-10" style="width: 350px; margin:0 auto;">
+    <div class="pentagon-wrapper">
+    </div>
+  </div>
 </body>
 </html>
